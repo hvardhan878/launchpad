@@ -10,6 +10,8 @@ import {
   Zap,
   Shield,
   Users,
+  Check,
+  Star
 } from "lucide-react"
 
 export default function Home() {
@@ -75,30 +77,136 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="py-20">
+      {/* Enhanced Pricing Section */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Simple, transparent pricing
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {pricingTiers.map((tier, index) => (
-              <Card key={index} className="p-8 hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-semibold mb-2">{tier.name}</h3>
-                <div className="text-3xl font-bold mb-4">${tier.price}</div>
-                <ul className="space-y-3 mb-8">
-                  {tier.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="text-green-500" size={20} />
-                      {feature}
-                    </li>
+          <div className="text-center mb-16">
+            <Badge className="mb-4">Pricing Plans</Badge>
+            <h2 className="text-4xl font-bold mb-4">Choose your perfect plan</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Simple, transparent pricing that grows with your business. All plans include 14-day free trial.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {/* Starter Plan */}
+            <Card className="relative p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="flex flex-col h-full">
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold mb-2">Starter</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-bold">$29</span>
+                    <span className="text-gray-600">/month</span>
+                  </div>
+                  <p className="text-gray-600 mt-4">Perfect for small teams just getting started</p>
+                </div>
+
+                <div className="space-y-4 mb-8 flex-grow">
+                  {[
+                    "Up to 5 team members",
+                    "Basic analytics dashboard",
+                    "24/7 email support",
+                    "1GB storage space",
+                    "Basic integrations"
+                  ].map((feature, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <Check className="text-green-500 h-5 w-5" />
+                      <span>{feature}</span>
+                    </div>
                   ))}
-                </ul>
-                <Button className="w-full" variant={tier.featured ? "default" : "outline"}>
-                  Get Started
+                </div>
+
+                <Button className="w-full" variant="outline">
+                  Start Free Trial
                 </Button>
-              </Card>
-            ))}
+              </div>
+            </Card>
+
+            {/* Pro Plan */}
+            <Card className="relative p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-purple-200 bg-gradient-to-b from-white to-purple-50">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <Badge className="bg-purple-600 text-white">
+                  <Star className="h-4 w-4 mr-1" /> Most Popular
+                </Badge>
+              </div>
+
+              <div className="flex flex-col h-full">
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold mb-2">Pro</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-bold">$99</span>
+                    <span className="text-gray-600">/month</span>
+                  </div>
+                  <p className="text-gray-600 mt-4">For growing teams needing more power</p>
+                </div>
+
+                <div className="space-y-4 mb-8 flex-grow">
+                  {[
+                    "Up to 20 team members",
+                    "Advanced analytics & reporting",
+                    "Priority 24/7 support",
+                    "10GB storage space",
+                    "Advanced integrations",
+                    "Custom workflows",
+                    "API access"
+                  ].map((feature, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <Check className="text-green-500 h-5 w-5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                  Start Free Trial
+                </Button>
+              </div>
+            </Card>
+
+            {/* Enterprise Plan */}
+            <Card className="relative p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="flex flex-col h-full">
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-bold">$299</span>
+                    <span className="text-gray-600">/month</span>
+                  </div>
+                  <p className="text-gray-600 mt-4">For large organizations with specific needs</p>
+                </div>
+
+                <div className="space-y-4 mb-8 flex-grow">
+                  {[
+                    "Unlimited team members",
+                    "Custom analytics solutions",
+                    "Dedicated account manager",
+                    "Unlimited storage",
+                    "Custom integrations",
+                    "Advanced security",
+                    "SLA guarantee",
+                    "Custom deployment options"
+                  ].map((feature, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <Check className="text-green-500 h-5 w-5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button className="w-full" variant="outline">
+                  Contact Sales
+                </Button>
+              </div>
+            </Card>
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-gray-600">
+              All plans include unlimited updates and basic support. Need something different?{" "}
+              <Button variant="link" className="text-purple-600 font-semibold">
+                Contact us
+              </Button>
+            </p>
           </div>
         </div>
       </section>
